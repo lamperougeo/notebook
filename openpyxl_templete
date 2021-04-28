@@ -1,0 +1,67 @@
+# -*- coding = utf-8 -*-
+
+'''
+安装openpyxl包
+确定环境正确，在终端下使用命令:
+pip install openpyxl
+'''
+
+'''
+操作openpyxl步骤：
+1、创建或获取work book （工作文件）
+2、创建或获取work sheet （工作表sheet）
+3、对获取的单元格进行操作
+'''
+
+from openpyxl import Workbook
+from openpyxl import load_workbook
+
+# 1、获取工作表文件，即excel对象
+# 方法一：创建工作表
+wb = Workbook
+
+# 方法二：打开已存在的excel文件
+wb = load_workbook("需操作的excel文件.xlsx")
+
+
+
+# 2、创建或获取work sheet（工作表sheet）。通过openpyxl.workbook.Workbook.active()调用当前激活的工作表
+sheet = wb.active
+
+#或激活指定的工作表 ws = wb[sheet_name]   sheet_name是字符串格式
+sheet1 = wb["Sheet1"]
+
+
+#创建一个sheet
+
+sheet = wb.create_sheet()  #默认插在工作簿末尾
+sheet = wb.create_sheet(0)  #插在工作簿首位
+sheetname =  wb.create_sheet("sheetname" ,0) #在首位创建一个名为sheetname工作表
+sheet.title = "change_name"
+
+#3、操作单元格
+
+#读取单元格内容。有两种方法，如读取A1单元格内容，第一种是 sheet['A1].value
+A1_content = sheet['A1'].value
+
+#第二种方法  sheet(row = 1,column =1 ).value
+A1_content = sheet(row = 1,column =1 ).value
+
+
+#写入单元格内容
+sheet['A1'] = 10   #无须加value
+sheet(row = 1,column =1 ).value = 10
+
+#批量写入，直接将数据附在工作表的末尾
+list = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+for i in list:
+    sheet.append(i)
+
+#读取最大行数,最大列数 max_row 、max_column
+maxrow = sheet.max_row
+maxcolumn = sheet.max_column
+print(maxrow,maxcolumn)
