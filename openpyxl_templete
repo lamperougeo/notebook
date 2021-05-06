@@ -45,12 +45,12 @@ sheet.title = "change_name"
 A1_content = sheet['A1'].value
 
 #第二种方法  sheet(row = 1,column =1 ).value
-A1_content = sheet(row = 1,column =1 ).value
+A1_content = sheet.cell(row = 1,column =1 ).value
 
 
 #写入单元格内容
 sheet['A1'] = 10   #无须加value
-sheet(row = 1,column =1 ).value = 10
+sheet.cell(row = 1,column =1 ).value = 10
 
 #批量写入，直接将数据附在工作表的末尾
 list = [
@@ -65,3 +65,6 @@ for i in list:
 maxrow = sheet.max_row
 maxcolumn = sheet.max_column
 print(maxrow,maxcolumn)
+
+
+wb.save("file_name.xlsx")
