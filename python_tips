@@ -1,0 +1,33 @@
+1、运行当前的代码 :    alt + shift + E
+
+2、Ctrl + shift + u  ： 转换大小写
+
+3、历史剪切板   Ctrl + Shift + V 
+
+4、 python虚拟环境pip安装包
+cd C:\Personal\美团商务分析大赛\meituan_code\venv\Scripts
+activate.bat
+pip install openpyxl
+pip install 包名-i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+5、在终端下Terminal ： pip freeze
+
+6、charm默认模板编辑
+在setting- edit-  file and templates
+
+#-*- coding = utf-8 -*-
+#@Time : ${DATE} ${TIME}
+#Author : ZERO
+#@File : ${NAME}.py
+#@Software : ${PRODUCT_NAME}
+
+
+7、格式化输出
+%d     十进制整数  %age
+%c    字符
+%s 通过str（）字符串转换来格式化
+
+\n 换行输出
+
+
+
