@@ -1,5 +1,0 @@
-#创建新表
-create table table_name (
-select * from  user 
-
-)

@@ -1,0 +1,37 @@
+# 打开当前文件夹，将exe文件的内容保存至mysql中 
+
+import pymysql
+import os
+#与mysql建立连接
+conn = pymysql.connect(host='127.0.0.1',port = 3306, user='root', password='bytedance', db='salesdata', charset='utf8')
+cur = conn.cursor()
+
+#创建数据库
+try:
+    cur.execute("CREATE TABLE qq ( id int(5) NOT NULL auto_increment, qq varchar(20)NOT NULL, PRIMARY KEY  (id));")
+except:
+    print("数据库已存在")
+    
+ #　　请注意一定要有conn.commit()这句来提交事务，要不然不能真正的插入数据。 
+conn.commit()
+
+#获取当前的路径和文件名称，列出所有的文件
+# path = os.getcwd()
+# files = os.listdir(path)
+
+files = ['1.txt','2.txt','3.txt']
+i = 0
+for file in files:
+    f = open(file,'r',encoding = 'utf-8')
+    next(f)
+
+    for line in f:
+        i += 1
+
+        sql = "insert into qq(qq) value(%s)"
+        cur.execute(sql,line)
+        print("插入第",i,"条数据！")
+        conn.commit()
+    f.close()
+cur.close()
+conn.close()
