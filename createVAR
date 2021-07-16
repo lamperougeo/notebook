@@ -1,0 +1,3 @@
+createVar = locals()
+for i in range(9):  
+    createVar['thread'+ str(i)] = i
