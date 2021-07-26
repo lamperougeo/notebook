@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Pandas demo
+
+import pandas as pd
+raw_data = pd.read_excel("https://github.com/xiangyuchang/xiangyuchang.github.io/blob/master/BearData/shops_nm.xlsx?raw=true") #读入数据
+
+# 读取csv文件 
+# raw_data = pd.read_csv('')
+
+#查看数据的前5行
+print(raw_data.head())
+
+# ## 判断重复情况
+
+duplicated_data = raw_data[raw_data.duplicated() == True]
+if len(duplicated_data) == 0:
+    print('不存在完全一致的数据行')
+else:
+    print(duplicated_data)
+
+#将店名重复的数据删除
+drop_duplicates_shops = raw_data.drop_duplicates(subset=['店名'])
+
+# ## 判断表达式
+
+'''
+# 筛选某一列的值，返回符合条件的所有行
+df1[df1[column1] == value1]
+
+# 筛选某一列的值，返回符合条件的某一列
+df1[column2][df1[column1] == value1]
+
+# 筛选多列的值，返回符合条件的所有行
+df1[df1[column1] == value1][df1[column2] == value2][...]
+
+# 筛选多列的值，返回符合该条件的多列
+df1[[column1, column2]][df1[column1] == value1][...]
+'''
+
+print(raw_data[raw_data['评分']==5])
+
+
+# ## 检查缺失
+is_null_data = raw_data[raw_data['评价数'].isnull() == True]
+print(is_null_data)
+
+raw_data2 = raw_data[raw_data['评价数'].isnull() == False]
+
+
+
+
+
