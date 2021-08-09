@@ -3,7 +3,7 @@
 import pymysql
 import os
 #与mysql建立连接
-conn = pymysql.connect(host='127.0.0.1',port = 3306, user='root', password='bytedance', db='salesdata', charset='utf8')
+conn = pymysql.connect(host='127.0.0.1',port = 3306, user='root', password='--', db='--', charset='utf8')
 cur = conn.cursor()
 
 #创建数据库
