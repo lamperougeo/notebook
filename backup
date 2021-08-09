@@ -4,8 +4,9 @@ def varname(p):
     m = re.search(r'\bvarname\s*\(\s*([A-Za-z_][A-Za-z0-9_]*)\s*\)', line)
     if m:
       return m.group(1)
-      
-      # 格式化输出百分比
-      format(schedule,'.0%'))
-      
-      chr(ord("C") + 1)
+
+# 格式化输出百分比
+format(schedule,'.0%'))
+
+# 返回下一个字母
+chr(ord("C") + 1)
