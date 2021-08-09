@@ -48,3 +48,8 @@ def varname(p):
 createVar = locals()
 for i in range(9):  
     createVar['thread'+ str(i)] = i
+
+11丶获得当前路径
+path = os.getcwd()
+files = os.listdir(path)
+print(files)
