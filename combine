@@ -1,0 +1,24 @@
+from openpyxl import load_workbook
+wb = load_workbook("Templete.xlsx")
+ws = wb.active
+n = 2
+for i in ['1.xlsx','1.xlsx']:
+
+
+    wb_t = load_workbook(i)
+    ws_t = wb_t.active
+
+    #获取最大行
+    maxrow = ws_t.max_row
+    print("最大行"+str(maxrow))
+    #批量写入
+    for j in range(2,maxrow+1):
+        for col in ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"]:
+            print(col+str(j),ws_t[col + str(j)].value)
+            print()
+            ws[col + str(n)] = ws_t[col + str(j)].value
+        n += 1
+
+
+print("finish")
+wb.save("file_name.xlsx")
