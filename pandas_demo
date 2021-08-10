@@ -50,5 +50,8 @@ raw_data2 = raw_data[raw_data['评价数'].isnull() == False]
 
 
 
+# 返回某行的值 dataframe.reindex(['aim'])
 
 
+#数据透视表 
+pd.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All')
