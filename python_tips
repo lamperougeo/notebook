@@ -53,3 +53,9 @@ for i in range(9):
 path = os.getcwd()
 files = os.listdir(path)
 print(files)
+
+12、获得某路径下的文件名
+import os
+dir_path = 'C:\code\pythonProject\源文件/'
+for root, dirs, files in os.walk(dir_path):
+	print(files)
