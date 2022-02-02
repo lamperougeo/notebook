@@ -1,0 +1,3 @@
+eval  可以将字符串转换为合适的格式 例如:
+bagwords = "['包', '组件', '商店', '界面', '好看点']"
+type(eval(bagwords)) = list
